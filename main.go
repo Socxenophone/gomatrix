@@ -1,9 +1,23 @@
-// You can edit this code!
-// Click here and start typing.
 package main
 
-import "net/http"
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
 
 func main() {
-	http.Get("https://jsonplaceholder.typicode.com/posts")
+	url := "https://jsonplaceholder.typicode.com/posts"
+	//r := strings.NewReader("my request")
+	resp, err := http.Get(url)
+	if err != nil {
+		// handle error
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		// handle error
+	}
+	// process body
+	fmt.Println(body)
 }
