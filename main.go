@@ -19,5 +19,5 @@ func main() {
 		// handle error
 	}
 	// process body
-	fmt.Println(body)
+	fmt.Println(string(body))
 }
